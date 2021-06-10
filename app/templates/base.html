@@ -1,0 +1,17 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Splonko Reports</title>
+        {% else %}
+        <title> Welcome to Splonko Reports</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+          Splonko Reports: <a href="/index">Dashboard</a>
+        </div>
+        <hr>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
