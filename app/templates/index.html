@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello, {{ user.username }}!</h1>
+    {% for api in apis %}
+    <div>
+            <p>
+                {{ api.request.requestName }} shows a status code of:
+                    <b>
+                        {{ api.status.statusCode }}
+                    </b>
+            </p>
+    </div>
+    {% endfor %}
+{% endblock %}
