@@ -23,6 +23,10 @@
    
 10. In the virtual environment terminal, ran flask: 'flask run'
 11. In browser, navigated to http://localhost:5000/ to see Hello, World!
+12. Registered Env variable so I didn't have to contantly set the env variable to the app:
+   * In virtual environment - pip install python-dotenv
+   * Create a .flaskenv file under the main folder
+   *Added this line of text: FLASK_APP=<application_name> => FLASK_APP=splonko_reports.py
 
 ```
 Everything was straight forward getting the app going.  Didn't run into any hickups along the way.
