@@ -4,6 +4,12 @@
 <h4> Referenced Book: "The New and Improved Flask Mega-Tutorial" by Miguel Grinberg
 <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"> Flask Mega Tutorial</a> </h4>
 
+<h5>Day2: Templates</h5>
+1.  Created template directory in application to store all html files
+2.  Created base.html template where all other html files will be built off of.
+3.  Built index.html page which is essentially the home page
+4.  Updated routes.py to add fake data to make sure page responds correctly.
+
 <h5>Day1: Hello World</h5>
 
 1. Installed Python: https://www.python.org/downloads/
