@@ -1,3 +1,61 @@
 2021-06-11 10:37:53,038 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:44]
 2021-06-11 11:45:10,952 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:45]
 2021-06-11 11:49:09,226 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:45]
+2021-06-11 13:22:36,903 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:22:40,632 ERROR: Exception on /login [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 50, in login
+    return render_template('login.html', title='Sign In', form=form)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block 'body'
+    {% block navbar %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 22, in block 'navbar'
+    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\helpers.py", line 338, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\helpers.py", line 325, in url_for
+    rv = url_adapter.build(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\werkzeug\routing.py", line 2305, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'explore'. Did you mean 'edit_profile' instead?
+2021-06-11 13:24:03,449 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:29:23,872 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:29:47,662 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:30:13,905 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:35:53,212 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:36:10,645 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:38:19,010 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:43:31,135 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:44:05,095 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:45:24,568 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:46:46,212 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:47:01,257 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:47:13,329 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:48:02,067 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 13:58:13,266 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-11 14:18:10,682 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
