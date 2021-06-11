@@ -16,3 +16,10 @@
         --This will not replace applications like POSTMAN - this isn't a test application.
         --Rather, you'll be able to see a status of your API requests and see if they're passing
           of failing.
+
+
+Common commands needed and forgotten:
+
+Updating Flask DB: <br>
+   * flask db migrate -m "insert message" <br>
+   * flask db upgrade
