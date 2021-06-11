@@ -23,3 +23,11 @@ Common commands needed and forgotten:
 Updating Flask DB: <br>
    * flask db migrate -m "insert message" <br>
    * flask db upgrade
+
+
+Update Env variables to get emails: <br> ** Use set instead of export if on Windows ** <br>
+* export MAIL_SERVER=smtp.googlemail.com
+* export MAIL_PORT=587
+* export MAIL_USE_TLS=1
+* export MAIL_USERNAME=<your-gmail-username>
+* export MAIL_PASSWORD=<your-gmail-password>
