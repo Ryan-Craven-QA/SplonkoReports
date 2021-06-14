@@ -1,0 +1,22 @@
+.dot200 {
+  height: 25px;
+  width: 25px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot400 {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.apiBlock {
+  font-size: large;
+  position: relative;
+  top: -30px;
+  right: -15px;
+}

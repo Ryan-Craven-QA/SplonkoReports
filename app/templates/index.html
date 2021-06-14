@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 style="font-family: Ebrima ;">  API Dashboard </h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px;">  API Dashboard: </h1>
     {% for api in apis %}
     <div>
-            <p>
-                {{ api.request.requestName }} shows a status code of:
+        <span class="dot{{api.status.statusCode}}"></span>
+            <p class = apiBlock>
+                &ensp; {{ api.request.requestName }} shows a status code of:
                     <b>
                         {{ api.status.statusCode }}
                     </b>
