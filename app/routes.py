@@ -1,5 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
+from pip._vendor import requests
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm
@@ -29,7 +30,7 @@ def index():
             'status': {'statusCode': '400'}
         }
     ]
-    return render_template('index.html', title='Home')
+    return render_template('index.html', title='Home', apis=apis)
 
 
 @app.route('/login', methods=['GET', 'POST'])

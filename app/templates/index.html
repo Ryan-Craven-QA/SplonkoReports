@@ -1,15 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 style="font-family: Ebrima ;">  API Dashboard </h1>
-    {% for api in apis %}
-    <div>
-            <p>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px;">  API Dashboard: </h1>
+
+    <table style="width:50%">
+        <tr>
+            <th style="background-color: lightseagreen">Status</th>
+            <th style="background-color: lightseagreen">Name</th>
+            <th style="background-color: lightseagreen">Status Code</th>
+        </tr>
+                    {% for api in apis %}
+
+        <tr">
+            <td>
+                    <span class="circle{{api.status.statusCode}}"></span>
+            </td>
+            <td>
                 {{ api.request.requestName }} shows a status code of:
-                    <b>
-                        {{ api.status.statusCode }}
-                    </b>
-            </p>
-    </div>
-    {% endfor %}
+            </td>
+            <td>
+                {{ api.status.statusCode }}
+            </td>
+        </tr>
+            {% endfor %}
+    </table>
+
 {% endblock %}
