@@ -1,0 +1,125 @@
+2021-06-18 15:05:48,119 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1608, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'User' has no attribute 'apiurl'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 138, in create_API
+    if form.validate_on_submit():
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_wtf\form.py", line 100, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 318, in validate
+    return super(Form, self).validate(extra)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 150, in validate
+    if not field.validate(self, extra):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 226, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 246, in _run_validation_chain
+    validator(form, self)
+  File "C:\Users\rmcra\SplonkoReports\app\forms.py", line 75, in validate_apiurl
+    user = User.query.filter_by(apiurl=apiurl.data).first()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1741, in filter_by
+    clauses = [
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1742, in <listcomp>
+    _entity_namespace_key(from_entity, key) == value
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1610, in _entity_namespace_key
+    util.raise_(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "apiurl"
+2021-06-18 15:07:24,750 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:07:30,149 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:07:33,519 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:07:40,693 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:07:45,949 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1608, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'User' has no attribute 'apiurl'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 138, in create_API
+    if form.validate_on_submit():
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_wtf\form.py", line 100, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 318, in validate
+    return super(Form, self).validate(extra)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 150, in validate
+    if not field.validate(self, extra):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 226, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 246, in _run_validation_chain
+    validator(form, self)
+  File "C:\Users\rmcra\SplonkoReports\app\forms.py", line 75, in validate_apiurl
+    user = User.query.filter_by(apiurl=apiurl.data).first()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1741, in filter_by
+    clauses = [
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1742, in <listcomp>
+    _entity_namespace_key(from_entity, key) == value
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1610, in _entity_namespace_key
+    util.raise_(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "apiurl"
+2021-06-18 15:08:55,089 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:08:59,679 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 139, in create_API
+    apiname = Api(form.apiname.data)
+TypeError: __init__() takes 1 positional argument but 2 were given
+2021-06-18 15:09:32,468 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 139, in create_API
+    apiname = Api(form.apiname.data)
+TypeError: __init__() takes 1 positional argument but 2 were given
+2021-06-18 15:09:50,068 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 139, in create_API
+    apiname = Api(form.apiname.data)
+TypeError: __init__() takes 1 positional argument but 2 were given
+2021-06-18 15:10:31,427 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]

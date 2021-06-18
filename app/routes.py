@@ -3,8 +3,9 @@ from flask_login import login_user, logout_user, current_user, login_required
 from pip._vendor import requests
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
+    CreateAPI
+from app.models import User, Api
 from datetime import datetime
 from app.email import send_password_reset_email
 
@@ -30,7 +31,11 @@ def index():
             'status': {'statusCode': '400'}
         }
     ]
-    return render_template('index.html', title='Home', apis=apis)
+    requestname = requests.get('https://reqres.in/api/users/2').request
+    response = requests.get('https://reqres.in/api/users?page=2').text
+    responsecode = requests.get('https://reqres.in/api/users/23').status_code
+    return render_template('index.html', title='Home', apis=apis, requestname=requestname, response=response,
+                           responsecode=responsecode)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -125,3 +130,16 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
+
+
+@app.route('/createAPI', methods=['GET', 'POST'])
+def create_API():
+    form = CreateAPI()
+    if form.validate_on_submit():
+        c_api = Api(apiname = form.apiname.data, requesttype = form.requesttype.data, apiurl = form.apiurl.data)
+
+        db.session.add(c_api)
+        db.session.commit()
+        flash('API added to DB')
+        return redirect(url_for('index'))
+    return render_template('createAPI.html', title='Create API', form=form)

@@ -1,0 +1,121 @@
+2021-06-18 15:10:36,245 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2566, in add
+    state = attributes.instance_state(instance)
+AttributeError: type object 'Api' has no attribute '_sa_instance_state'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
+    db.session.add(Api)
+  File "<string>", line 2, in add
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2568, in add
+    util.raise_(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.orm.exc.UnmappedInstanceError: Class 'flask_sqlalchemy.model.DefaultMeta' is not mapped; was a class (app.models.Api) supplied where an instance was required?
+2021-06-18 15:11:50,874 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:11:55,133 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
+    db.session.add(apiname,requesttype,apiurl)
+TypeError: add() takes from 2 to 3 positional arguments but 4 were given
+2021-06-18 15:13:50,440 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:13:54,879 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
+    db.session.commit(c_api)
+TypeError: commit() takes 1 positional argument but 2 were given
+2021-06-18 15:14:13,535 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-18 15:14:17,435 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: api.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
+    result = connection._execute_20(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: api.id
+[SQL: INSERT INTO api (apiname, requesttype, apiurl) VALUES (?, ?, ?)]
+[parameters: ('test', 'Get', 'test')]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+2021-06-18 15:14:45,780 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
