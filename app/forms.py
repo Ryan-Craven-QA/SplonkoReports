@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
-from app.models import User
+from app.models import User, Api
 
 
 class LoginForm(FlaskForm):
@@ -56,3 +56,22 @@ class ResetPasswordForm(FlaskForm):
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Request Password Reset')
+
+
+class CreateAPI(FlaskForm):
+    typeOptions = ['Get', 'Post', 'Put', 'Delete']
+    apiname = StringField('API Name', validators=[DataRequired()])
+    requesttype = SelectField(u'Request Type', choices=typeOptions, validators=[DataRequired()])
+    apiurl = StringField('Request URL', validators=[DataRequired()])
+    # defaultAPI = BooleanField('Sets API to run first')
+    submit = SubmitField('Save')
+
+    def validate_name(self, name):
+        user = Api.query.filter_by(name=name.data).first()
+        if user is not None:
+            raise ValidationError('Name already used, please rename the API Request.')
+
+    def validate_apiurl(self, apiurl):
+        user = Api.query.filter_by(apiurl=apiurl.data).first()
+        if user is not None:
+            raise ValidationError('Please use a different Request URL.')

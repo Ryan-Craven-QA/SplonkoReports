@@ -18,7 +18,13 @@
                     <span class="circle{{api.status.statusCode}}"></span>
             </td>
             <td>
-                {{ api.request.requestName }} shows a status code of:
+                {{ requestname }} <br>
+                {{ api.request.requestName }} shows a status code of: <br>
+                <details>
+                    <summary style="cursor: pointer; color: blue; font-weight: bold;"> Expand to see response: </summary>
+                    <p> {{ response }} </p>
+                </details>
+                <br> {{ responsecode }}
             </td>
             <td>
                 {{ api.status.statusCode }}

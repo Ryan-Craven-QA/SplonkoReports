@@ -1,3 +1,4 @@
+/*200 Status Codes*/
 .circle200{
   background-color:green;
   display:block;
@@ -8,9 +9,21 @@
   color: green;
   line-height:50px;
   text-align:center
-
 }
 
+.circle201{
+  background-color:green;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: green;
+  line-height:50px;
+  text-align:center
+}
+
+/*400 Status Codes*/
 .circle400{
   background-color:red;
   display:block;
@@ -21,7 +34,90 @@
   color: red;
   line-height:50px;
   text-align:center
+}
 
+.circle401{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle403{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle404{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle405{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle409{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle500{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle503{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
 }
 
 .apiBlock {
@@ -40,4 +136,16 @@ table, th, td {
 table {
   border-collapse:separate;
   border-spacing:2px;
+}
+
+.myselect {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.myselect option {
+  white-space: nowrap;
+  width: 100%; border-bottom: 1px #ccc solid;
+  /* This doesn't work. */
 }

@@ -8,6 +8,41 @@ import jwt
 from app import app
 
 
+class Api(db.Model):
+    # Building API
+    apiid = db.Column(db.Integer, primary_key=True)
+    apiname = db.Column(db.String(120), index=True, unique=True)         # Stores user inputted Name
+    requesttype = db.Column(db.Text, index=True, unique=False)              # Stores request type
+    apiurl = db.Column(db.Text, index=True, unique=True)                   # Example:  https://reqres.in/api/users/2
+    # apidata = db.Column(db.text, primary_key=True)
+    # apijson = db.Column(db.text, primary_key=True)
+    # apifiles = db.Column(db.text, primary_key=True)
+    # apillowredirects = db.Column(db.Boolean, primary_key=True)
+    # apiauth = db.Column(db.text, primary_key=True)
+    # apicert = db.Column(db.text, primary_key=True)
+    # apicookies = db.Column(db.text, primary_key=True)
+    # apiheaders = db.Column(db.text, primary_key=True)
+    # apiproxy = db.Column(db.text, primary_key=True)
+    #
+    # # Storing API Results
+    # apirequest = db.Column(db.text, primary_key=True)  #
+    # statuscode = db.Column(db.Integer, primary_key=True)  # Status Code: 200, 404
+    # apireason = db.Column(db.text, primary_key=True)  # Example would be OK
+    # last_run = db.Column(db.DateTime, default=datetime.utcnow)  # Stores date last executed
+
+    # def __repr__(self):
+    #     return self.name
+    #
+    # def set_name(self, name):
+    #     return name
+    #
+    # def set_requesttype(self, requesttype):
+    #     return requesttype
+    #
+    # def set_apiurl(self, apiurl):
+    #     return apiurl
+
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -43,6 +78,7 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
+
 
 @login.user_loader
 def load_user(id):
