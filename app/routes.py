@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from pip._vendor import requests
 from werkzeug.urls import url_parse
-from app import app, db
+from app import app, db, requests_helper
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
     CreateAPI
 from app.models import User, Api
@@ -21,21 +21,43 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
-    apis = [
-        {
-            'request': {'requestName': 'Login'},
-            'status': {'statusCode': '200'}
-        },
-        {
-            'request': {'requestName': 'Users'},
-            'status': {'statusCode': '400'}
-        }
-    ]
-    requestname = requests.get('https://reqres.in/api/users/2').request
-    response = requests.get('https://reqres.in/api/users?page=2').text
-    responsecode = requests.get('https://reqres.in/api/users/23').status_code
-    return render_template('index.html', title='Home', apis=apis, requestname=requestname, response=response,
-                           responsecode=responsecode)
+
+    # apis = [
+    #     {
+    #         'request': {'requestName': 'Login'},
+    #         'status': {'statusCode': '200'}
+    #     },
+    #     {
+    #         'request': {'requestName': 'Users'},
+    #         'status': {'statusCode': '400'}
+    #     }
+    # ]
+
+    try:
+        s = Api.query.all()
+        apipass = 0
+        apifail = 0
+        apitotal = 0
+        for x in s:
+            requestname = Api.get_apiname(x)
+            requesttype = Api.get_requestype(x)
+            apiurl = Api.get_apiurl(x)
+            response = requests_helper.perform_request(requesttype, apiurl)
+            if response.status_code < 300:
+                apipass += 1
+                apitotal += 1
+            else:
+                apifail += 1
+                apitotal += 1
+            Api.set_responsecode(x, response.status_code)
+            Api.set_response(x, response.json())
+            Api.set_reason(x, response.reason)
+
+        data = db.session.query(Api).all()
+        apisuccess = "{:.2f}".format((apipass / apitotal)*100)
+        return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal, apisuccess=apisuccess)
+    except UnboundLocalError:
+        return render_template('index.html', title='Home')
 
 
 @app.route('/login', methods=['GET', 'POST'])

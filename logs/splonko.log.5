@@ -1,11 +1,4 @@
-2021-06-18 13:53:06,869 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
-Traceback (most recent call last):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1608, in _entity_namespace_key
-    return getattr(ns, key)
-AttributeError: type object 'User' has no attribute 'name'
-
-The above exception was the direct cause of the following exception:
-
+2021-06-21 12:19:50,328 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
 Traceback (most recent call last):
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,38 +8,37 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 138, in create_API
-    if form.validate_on_submit():
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_wtf\form.py", line 100, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 318, in validate
-    return super(Form, self).validate(extra)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 150, in validate
-    if not field.validate(self, extra):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 226, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 246, in _run_validation_chain
-    validator(form, self)
-  File "C:\Users\rmcra\SplonkoReports\app\forms.py", line 70, in validate_name
-    user = User.query.filter_by(name=name.data).first()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1741, in filter_by
-    clauses = [
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1742, in <listcomp>
-    _entity_namespace_key(from_entity, key) == value
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1610, in _entity_namespace_key
-    util.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "name"
-2021-06-18 13:56:36,821 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 13:56:43,025 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
-Traceback (most recent call last):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1608, in _entity_namespace_key
-    return getattr(ns, key)
-AttributeError: type object 'User' has no attribute 'name'
-
-The above exception was the direct cause of the following exception:
-
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 51, in index
+    return render_template('index.html', title='Home', data=data)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 18, in block 'content'
+    <span class="circle{{ api.get_responsecode(x) }}"></span>
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 474, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'api' is undefined
+2021-06-21 12:20:57,879 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 12:20:59,425 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
 Traceback (most recent call last):
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -56,60 +48,73 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 138, in create_API
-    if form.validate_on_submit():
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_wtf\form.py", line 100, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 318, in validate
-    return super(Form, self).validate(extra)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\form.py", line 150, in validate
-    if not field.validate(self, extra):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 226, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\wtforms\fields\core.py", line 246, in _run_validation_chain
-    validator(form, self)
-  File "C:\Users\rmcra\SplonkoReports\app\forms.py", line 70, in validate_name
-    user = User.query.filter_by(name=name.data).first()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1741, in filter_by
-    clauses = [
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1742, in <listcomp>
-    _entity_namespace_key(from_entity, key) == value
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1610, in _entity_namespace_key
-    util.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "name"
-2021-06-18 13:59:48,070 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:03:54,277 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:04:00,630 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:04:12,170 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:04:19,318 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:05:36,134 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:06:21,525 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:08:09,266 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:08:36,213 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:09:07,102 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:09:18,426 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:10:13,132 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:10:24,780 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:10:41,248 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:10:52,543 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:10:59,482 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:11:36,441 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:11:54,062 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:11:59,685 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:13:19,074 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:13:25,656 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:14:01,182 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:14:56,564 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:15:26,540 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:27:04,548 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:27:20,821 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:27:25,116 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:27:36,132 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:28:20,384 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:29:41,010 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:29:52,013 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:29:56,350 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:30:01,655 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 14:30:36,849 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 49, in index
+    return render_template('index.html', title='Home', s=s)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 18, in block 'content'
+    <span class="circle{{ api.get_responsecode(x) }}"></span>
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 474, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'api' is undefined
+2021-06-21 12:21:08,711 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 12:21:10,060 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 49, in index
+    return render_template('index.html', title='Home', s=s)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 18, in block 'content'
+    <span class="circle{{ Api.get_responsecode(x) }}"></span>
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 474, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'Api' is undefined
+2021-06-21 12:22:32,782 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
