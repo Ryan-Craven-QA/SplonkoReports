@@ -8,7 +8,7 @@
 <h3> The idea behind Splonko Reports is to provide an open source opportunity to show: </h3>
 
 1. Status of APIs that run of a schedule (WIP) -- Main goal
-2. Poll / Pull Test automation results -- Stretch goal (will be implemented late)
+2. Poll / Pull Test automation results -- Stretch goal (will be implemented later)
 
 --Why?
     I got tired of consistently having to run a newman script to run a collection of postman and 
