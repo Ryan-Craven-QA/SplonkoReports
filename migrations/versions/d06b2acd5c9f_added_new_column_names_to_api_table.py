@@ -1,8 +1,8 @@
-"""Initalizing
+"""added new column names to Api table
 
-Revision ID: c1752a939dab
+Revision ID: d06b2acd5c9f
 Revises: 
-Create Date: 2021-06-18 15:19:15.133304
+Create Date: 2021-06-21 11:42:40.916442
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c1752a939dab'
+revision = 'd06b2acd5c9f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,11 +23,17 @@ def upgrade():
     sa.Column('apiname', sa.String(length=120), nullable=True),
     sa.Column('requesttype', sa.Text(), nullable=True),
     sa.Column('apiurl', sa.Text(), nullable=True),
+    sa.Column('apiresponse', sa.Text(), nullable=True),
+    sa.Column('statuscode', sa.Integer(), nullable=True),
+    sa.Column('apireason', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('apiid')
     )
     op.create_index(op.f('ix_api_apiname'), 'api', ['apiname'], unique=True)
+    op.create_index(op.f('ix_api_apireason'), 'api', ['apireason'], unique=False)
+    op.create_index(op.f('ix_api_apiresponse'), 'api', ['apiresponse'], unique=False)
     op.create_index(op.f('ix_api_apiurl'), 'api', ['apiurl'], unique=True)
     op.create_index(op.f('ix_api_requesttype'), 'api', ['requesttype'], unique=False)
+    op.create_index(op.f('ix_api_statuscode'), 'api', ['statuscode'], unique=False)
     op.create_table('user',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=64), nullable=True),
@@ -47,8 +53,11 @@ def downgrade():
     op.drop_index(op.f('ix_user_username'), table_name='user')
     op.drop_index(op.f('ix_user_email'), table_name='user')
     op.drop_table('user')
+    op.drop_index(op.f('ix_api_statuscode'), table_name='api')
     op.drop_index(op.f('ix_api_requesttype'), table_name='api')
     op.drop_index(op.f('ix_api_apiurl'), table_name='api')
+    op.drop_index(op.f('ix_api_apiresponse'), table_name='api')
+    op.drop_index(op.f('ix_api_apireason'), table_name='api')
     op.drop_index(op.f('ix_api_apiname'), table_name='api')
     op.drop_table('api')
     # ### end Alembic commands ###

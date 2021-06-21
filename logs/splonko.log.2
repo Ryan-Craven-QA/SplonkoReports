@@ -1,11 +1,4 @@
-2021-06-18 15:10:36,245 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
-Traceback (most recent call last):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2566, in add
-    state = attributes.instance_state(instance)
-AttributeError: type object 'Api' has no attribute '_sa_instance_state'
-
-The above exception was the direct cause of the following exception:
-
+2021-06-21 12:32:44,029 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
 Traceback (most recent call last):
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,16 +8,49 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
-    db.session.add(Api)
-  File "<string>", line 2, in add
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2568, in add
-    util.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-sqlalchemy.orm.exc.UnmappedInstanceError: Class 'flask_sqlalchemy.model.DefaultMeta' is not mapped; was a class (app.models.Api) supplied where an instance was required?
-2021-06-18 15:11:50,874 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 15:11:55,133 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 49, in index
+    return render_template('index.html', title='Home', data=data)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1068, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 997, in get_template
+    return self._load_template(name, globals)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 958, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\loaders.py", line 137, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 29, in template
+    {{ x.apireason} }}<br> {{ x.statuscode }}
+jinja2.exceptions.TemplateSyntaxError: unexpected '}'
+2021-06-21 12:33:12,178 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 12:33:31,843 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 12:33:44,057 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 12:33:53,782 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 12:34:12,300 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:35:08,565 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:35:41,109 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:36:09,419 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:37:23,836 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:38:45,909 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:40:05,240 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:41:55,651 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:42:39,569 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:47:56,906 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:51:40,121 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:52:43,710 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:53:27,910 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:54:12,450 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:56:03,730 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:59:19,047 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:59:43,998 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 13:59:52,314 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
 Traceback (most recent call last):
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,11 +60,36 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
-    db.session.add(apiname,requesttype,apiurl)
-TypeError: add() takes from 2 to 3 positional arguments but 4 were given
-2021-06-18 15:13:50,440 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 15:13:54,879 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 49, in index
+    return render_template('index.html', title='Home', data=data)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 23, in block 'content'
+    <td class="pass"  style="padding: 5px 15px;">{{ pass + 1 }}</td>
+jinja2.exceptions.UndefinedError: 'pass' is undefined
+2021-06-21 14:00:11,880 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:07:35,616 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:07:43,881 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
 Traceback (most recent call last):
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -48,74 +99,24 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
-    db.session.commit(c_api)
-TypeError: commit() takes 1 positional argument but 2 were given
-2021-06-18 15:14:13,535 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 15:14:17,435 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
-Traceback (most recent call last):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: NOT NULL constraint failed: api.id
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
-    self._prepare_impl()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
-    self.session.flush()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
-    self._flush(objects)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
-    flush_context.execute()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
-    rec.execute(self)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
-    _emit_insert_statements(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
-    result = connection._execute_20(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
-    ret = self._execute_context(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
-    self._handle_dbapi_exception(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
-    util.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: api.id
-[SQL: INSERT INTO api (apiname, requesttype, apiurl) VALUES (?, ?, ?)]
-[parameters: ('test', 'Get', 'test')]
-(Background on this error at: http://sqlalche.me/e/14/gkpj)
-2021-06-18 15:14:45,780 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 57, in index
+    return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1068, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 997, in get_template
+    return self._load_template(name, globals)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 958, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\loaders.py", line 137, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 22, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.

@@ -26,22 +26,52 @@ class Api(db.Model):
     #
     # # Storing API Results
     # apirequest = db.Column(db.text, primary_key=True)  #
-    # statuscode = db.Column(db.Integer, primary_key=True)  # Status Code: 200, 404
-    # apireason = db.Column(db.text, primary_key=True)  # Example would be OK
+    apiresponse = db.Column(db.Text, index=True)  # Example would be JSON response
+    statuscode = db.Column(db.Integer, index=True)  # Status Code: 200, 404
+    apireason = db.Column(db.Text, index=True)  # Example would be OK
     # last_run = db.Column(db.DateTime, default=datetime.utcnow)  # Stores date last executed
 
-    # def __repr__(self):
-    #     return self.name
-    #
-    # def set_name(self, name):
-    #     return name
-    #
-    # def set_requesttype(self, requesttype):
-    #     return requesttype
-    #
-    # def set_apiurl(self, apiurl):
-    #     return apiurl
+    def __repr__(self):
+        apiinfo = []
+        apiinfo.append(self.apiname)
+        apiinfo.append(self.requesttype)
+        apiinfo.append(self.apiurl)
+        return str(apiinfo)
 
+    def get_apiname(self):
+        return str(self.apiname)
+
+    def get_apiurl(self):
+        return str(self.apiurl)
+
+    def get_requestype(self):
+        return str(self.requesttype)
+
+    def set_responsecode(self, code):
+        self.statuscode = int(code)
+        db.session.commit()
+
+    def set_response(self, json):
+        self.apiresponse = str(json)
+        db.session.commit()
+
+    def set_reason(self, reason):
+        self.apireason = str(reason)
+        db.session.commit()
+
+    def get_responsecode(self):
+        return str(self.statuscode)
+
+    def get_response(self):
+        return str(self.apiresponse)
+
+    def get_reason(self):
+        return str(self.apireason)
+
+# class ApiResponse(db.Model):
+#     apiresponse = db.Column(db.Text, index=True)  # Example would be JSON response
+#     statuscode = db.Column(db.Integer, index=True)  # Status Code: 200, 404
+#     apireason = db.Column(db.Text, index=True)  # Example would be OK
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)

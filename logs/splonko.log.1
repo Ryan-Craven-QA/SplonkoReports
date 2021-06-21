@@ -1,13 +1,9 @@
-2021-06-18 15:14:50,370 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
-Traceback (most recent call last):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: NOT NULL constraint failed: api.id
-
-The above exception was the direct cause of the following exception:
-
+2021-06-21 14:07:58,735 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:08:51,198 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:09:41,785 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:10:22,425 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:11:35,961 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:11:47,379 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
 Traceback (most recent call last):
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -17,64 +13,37 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
-    self._prepare_impl()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
-    self.session.flush()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
-    self._flush(objects)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
-    flush_context.execute()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
-    rec.execute(self)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
-    _emit_insert_statements(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
-    result = connection._execute_20(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
-    ret = self._execute_context(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
-    self._handle_dbapi_exception(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
-    util.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: api.id
-[SQL: INSERT INTO api (apiname, requesttype, apiurl) VALUES (?, ?, ?)]
-[parameters: ('test', 'Get', 'test')]
-(Background on this error at: http://sqlalche.me/e/14/gkpj)
-2021-06-18 15:15:48,517 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
-2021-06-18 15:15:53,899 ERROR: Exception on /createAPI [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
-Traceback (most recent call last):
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: NOT NULL constraint failed: api.id
-
-The above exception was the direct cause of the following exception:
-
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 57, in index
+    return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 20, in block 'content'
+    <td class="percent" style="padding: 5px 15px;">{{ parseint((apipass / apitotal)*100) }}%</td>
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\utils.py", line 84, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: 'parseint' is undefined
+2021-06-21 14:12:03,909 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:12:09,534 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
 Traceback (most recent call last):
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -84,50 +53,74 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 142, in create_API
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
-    self._prepare_impl()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
-    self.session.flush()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
-    self._flush(objects)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
-    flush_context.execute()
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
-    rec.execute(self)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
-    _emit_insert_statements(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
-    result = connection._execute_20(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
-    ret = self._execute_context(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
-    self._handle_dbapi_exception(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
-    util.raise_(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: api.id
-[SQL: INSERT INTO api (apiname, requesttype, apiurl) VALUES (?, ?, ?)]
-[parameters: ('test', 'Get', 'test')]
-(Background on this error at: http://sqlalche.me/e/14/gkpj)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 57, in index
+    return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 20, in block 'content'
+    <td class="percent" style="padding: 5px 15px;">{{ int((apipass / apitotal)*100) }}%</td>
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\utils.py", line 84, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: 'int' is undefined
+2021-06-21 14:12:20,166 ERROR: Exception on /index [GET] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 57, in index
+    return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\rmcra\SplonkoReports\app\templates\index.html", line 20, in block 'content'
+    <td class="percent" style="padding: 5px 15px;">{{ int((apipass / apitotal)*100) }}%</td>
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\jinja2\utils.py", line 84, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: 'int' is undefined
+2021-06-21 14:14:13,706 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:14:20,655 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-21 14:14:48,544 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]

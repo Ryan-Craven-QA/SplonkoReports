@@ -127,9 +127,16 @@
   right: -15px;
 }
 
+#output {
+  border: 1px solid black;
+  font-family: sans-serif;
+  margin-top: 20px;
+}
+
+
 table, th, td {
   border: 1px solid black;
-  font-weight: bold;
+  font-weight: 900;
   text-align:center
 }
 
@@ -149,3 +156,4 @@ table {
   width: 100%; border-bottom: 1px #ccc solid;
   /* This doesn't work. */
 }
+
