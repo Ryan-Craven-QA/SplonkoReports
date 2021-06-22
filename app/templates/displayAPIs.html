@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px;">  API Lists: </h1>
+
+<table style="width:50%">
+        <tr>
+            <th style="background-color: lightgreen">API ID</th>
+            <th style="background-color: lightgreen">Name</th>
+            <th style="background-color: lightgreen">Request Type</th>
+            <th style="background-color: lightgreen">Request URL</th>
+        </tr>
+                    {% for x in data %}
+
+        <tr>
+            <td>
+                {{ x.apiid }}
+            </td>
+            <td>
+                {{ x.apiname }}
+            </td>
+            <td>
+                 {{ x.requesttype }}
+            </td>
+            <td>
+                 {{ x.apiurl }}
+            </td>
+            <td>
+                 <button type="button">Edit</button>
+            </td>
+        </tr>
+            {% endfor %}
+    </table>
+{% endblock %}

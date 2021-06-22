@@ -32,6 +32,7 @@
                     <li><a href="{{ url_for('login') }}" style="color: navy;font-weight: bold;">Login</a></li>
                     {% else %}
                     <li><a href="{{ url_for('create_API') }}" style="color: navy;font-weight: bold;">Create API</a></li>
+                    <li><a href="{{ url_for('display_api') }}" style="color: navy;font-weight: bold;">Display APIs</a></li>
                     <li><a href="{{ url_for('user', username=current_user.username) }}" style="color: navy;font-weight: bold;">Profile</a></li>
                     <li><a href="{{ url_for('logout') }}" style="color: navy;font-weight: bold;" >Logout</a></li>
                     {% endif %}

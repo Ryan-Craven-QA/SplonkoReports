@@ -1,8 +1,6 @@
 from json import JSONDecodeError
-
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
-from pip._vendor import requests
 from werkzeug.urls import url_parse
 from app import app, db, requests_helper
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
@@ -160,3 +158,9 @@ def create_API():
         flash('API added to DB')
         return redirect(url_for('index'))
     return render_template('createAPI.html', title='Create API', form=form)
+
+
+@app.route('/displayAPIs', methods=['GET', 'POST'])
+def display_api():
+    data = db.session.query(Api).all()
+    return render_template('displayAPIs.html', title='API List', data=data)
