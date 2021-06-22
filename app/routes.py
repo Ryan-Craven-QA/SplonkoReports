@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from pip._vendor import requests
@@ -21,41 +23,34 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
-
-    # apis = [
-    #     {
-    #         'request': {'requestName': 'Login'},
-    #         'status': {'statusCode': '200'}
-    #     },
-    #     {
-    #         'request': {'requestName': 'Users'},
-    #         'status': {'statusCode': '400'}
-    #     }
-    # ]
-
     try:
         s = Api.query.all()
         apipass = 0
         apifail = 0
+        apiwip = 0
         apitotal = 0
         for x in s:
-            requestname = Api.get_apiname(x)
             requesttype = Api.get_requestype(x)
             apiurl = Api.get_apiurl(x)
-            response = requests_helper.perform_request(requesttype, apiurl)
-            if response.status_code < 300:
-                apipass += 1
-                apitotal += 1
-            else:
-                apifail += 1
-                apitotal += 1
-            Api.set_responsecode(x, response.status_code)
-            Api.set_response(x, response.json())
-            Api.set_reason(x, response.reason)
-
+            apidata = Api.get_apidata(x)
+            response = requests_helper.perform_request(requesttype, apiurl, apidata)
+            try:
+                if response.status_code < 300:
+                    apipass += 1
+                    apitotal += 1
+                else:
+                    apifail += 1
+                    apitotal += 1
+                Api.set_responsecode(x, response.status_code)
+                Api.set_response(x, response.json())
+                Api.set_reason(x, response.reason)
+            except AttributeError:
+                apiwip += 1
+            except JSONDecodeError:
+                Api.set_response(x, "{}")
         data = db.session.query(Api).all()
         apisuccess = "{:.2f}".format((apipass / apitotal)*100)
-        return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal, apisuccess=apisuccess)
+        return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal, apisuccess=apisuccess, apiwip=apiwip)
     except UnboundLocalError:
         return render_template('index.html', title='Home')
 
@@ -158,7 +153,7 @@ def reset_password(token):
 def create_API():
     form = CreateAPI()
     if form.validate_on_submit():
-        c_api = Api(apiname = form.apiname.data, requesttype = form.requesttype.data, apiurl = form.apiurl.data)
+        c_api = Api(apiname = form.apiname.data, requesttype = form.requesttype.data, apiurl = form.apiurl.data, apidata=form.apidata.data)
 
         db.session.add(c_api)
         db.session.commit()

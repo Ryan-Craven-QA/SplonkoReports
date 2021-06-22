@@ -13,8 +13,8 @@ class Api(db.Model):
     apiid = db.Column(db.Integer, primary_key=True)
     apiname = db.Column(db.String(120), index=True, unique=True)         # Stores user inputted Name
     requesttype = db.Column(db.Text, index=True, unique=False)              # Stores request type
-    apiurl = db.Column(db.Text, index=True, unique=True)                   # Example:  https://reqres.in/api/users/2
-    # apidata = db.Column(db.text, primary_key=True)
+    apiurl = db.Column(db.Text, index=True, unique=False)                   # Example:  https://reqres.in/api/users/2
+    apidata = db.Column(db.Text, index=True)
     # apijson = db.Column(db.text, primary_key=True)
     # apifiles = db.Column(db.text, primary_key=True)
     # apillowredirects = db.Column(db.Boolean, primary_key=True)
@@ -46,6 +46,9 @@ class Api(db.Model):
 
     def get_requestype(self):
         return str(self.requesttype)
+
+    def get_apidata(self):
+        return self.apidata
 
     def set_responsecode(self, code):
         self.statuscode = int(code)

@@ -23,6 +23,18 @@
   text-align:center
 }
 
+.circle204{
+  background-color:green;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: green;
+  line-height:50px;
+  text-align:center
+}
+
 /*400 Status Codes*/
 .circle400{
   background-color:red;
@@ -116,6 +128,18 @@
   border-radius:50%;
   margin:auto;
   color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circleNone{
+  background-color:orange;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: green;
   line-height:50px;
   text-align:center
 }
