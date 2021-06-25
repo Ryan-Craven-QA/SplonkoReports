@@ -1,0 +1,135 @@
+2021-06-25 09:41:32,808 ERROR: Exception on /edit_api [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: api.apiname
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 199, in edit_api
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
+    result = connection._execute_20(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: api.apiname
+[SQL: INSERT INTO api (apiname, requesttype, apiurl, apidata, apiresponse, statuscode, apireason) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('List Users', 'Get', 'https://reqres.in/api/users/a', None, None, None, None)]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+2021-06-25 09:44:52,421 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 09:45:01,527 ERROR: Exception on /edit_api [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 199, in edit_api
+    Api.set_apiurl(api_id, editForm.apiurl.data)
+  File "C:\Users\rmcra\SplonkoReports\app\models.py", line 49, in set_apiurl
+    self.apiurl = api_url
+AttributeError: 'str' object has no attribute 'apiurl'
+2021-06-25 09:50:53,738 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 09:52:31,227 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 09:52:40,844 ERROR: Exception on /edit_api [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 196, in edit_api
+    print('aPIURL' + editForm.apidata.data, file=sys.stderr)
+TypeError: can only concatenate str (not "NoneType") to str
+2021-06-25 09:55:27,430 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 09:55:30,652 ERROR: Exception on /edit_api [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 196, in edit_api
+    print('aPIURL' + editForm.apidata.data, file=sys.stderr)
+TypeError: can only concatenate str (not "NoneType") to str
+2021-06-25 09:55:38,431 ERROR: Exception on /edit_api [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 196, in edit_api
+    print('aPIURL' + editForm.apidata.data, file=sys.stderr)
+TypeError: can only concatenate str (not "NoneType") to str
+2021-06-25 09:56:03,344 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]

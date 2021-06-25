@@ -181,3 +181,7 @@ table {
   /* This doesn't work. */
 }
 
+form {
+  display: inline;
+  font-variant: all-petite-caps
+}

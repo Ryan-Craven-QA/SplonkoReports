@@ -76,3 +76,21 @@ class CreateAPI(FlaskForm):
     #     user = Api.query.filter_by(apiurl=apiurl.data).first()
     #     if user is not None:
     #         raise ValidationError('Please use a different Request URL.')
+
+
+class EditAPI(FlaskForm):
+    typeOptions = ['Get', 'Post', 'Put', 'Delete']
+    apiname = StringField('API Name', validators=[DataRequired()], render_kw={'readonly': True})
+    requesttype = SelectField(u'Request Type', choices=typeOptions, validators=[DataRequired()])
+    apiurl = StringField('Request URL', validators=[DataRequired()])
+    apidata = TextAreaField('Request Body')
+    submit = SubmitField('Save')
+
+    def __init__(self, apiid, *args, **kwargs):
+        super(EditAPI, self).__init__(*args, **kwargs)
+        self.apiid = apiid
+
+    def validate_name(self, name):
+        user = Api.query.filter_by(name=name.data).first()
+        if user is not None:
+            raise ValidationError('Name already used, please rename the API Request.')
