@@ -1,10 +1,11 @@
+import sys
 from json import JSONDecodeError
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, session
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db, requests_helper
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
-    CreateAPI
+    CreateAPI, EditAPI
 from app.models import User, Api
 from datetime import datetime
 from app.email import send_password_reset_email
@@ -28,7 +29,7 @@ def index():
         apiwip = 0
         apitotal = 0
         for x in s:
-            requesttype = Api.get_requestype(x)
+            requesttype = Api.get_requesttype(x)
             apiurl = Api.get_apiurl(x)
             apidata = Api.get_apidata(x)
             response = requests_helper.perform_request(requesttype, apiurl, apidata)
@@ -152,7 +153,6 @@ def create_API():
     form = CreateAPI()
     if form.validate_on_submit():
         c_api = Api(apiname = form.apiname.data, requesttype = form.requesttype.data, apiurl = form.apiurl.data, apidata=form.apidata.data)
-
         db.session.add(c_api)
         db.session.commit()
         flash('API added to DB')
@@ -162,5 +162,34 @@ def create_API():
 
 @app.route('/displayAPIs', methods=['GET', 'POST'])
 def display_api():
-    data = db.session.query(Api).all()
-    return render_template('displayAPIs.html', title='API List', data=data)
+    info = db.session.query(Api).all()
+    if request.method == 'POST':
+        if 'edit' in request.form:
+            api_id = request.form['edit']
+            session['api_id'] = api_id
+            return redirect(url_for('edit_api', api_id=api_id))
+        else:
+            api_id = request.form['delete']
+            api_to_delete = Api.query.get_or_404(api_id)
+            print('Delete button clicked and apiid is ' + str(api_id), file=sys.stderr)
+            db.session.delete(api_to_delete)
+            db.session.commit()
+            return redirect(url_for('display_api'))
+    else:
+        return render_template('displayAPIs.html', title='API List', data=info)
+
+
+@app.route('/edit_api', methods=['GET', 'POST'])
+@login_required
+def edit_api():
+    api_id = session.get('api_id')
+    data = Api.query.get(api_id)
+    form = CreateAPI(obj=data)
+    if request.method == 'POST' and form.validate_on_submit():
+        form.populate_obj(data)
+        db.session.add(data)
+        db.session.commit()
+        return redirect(url_for('display_api'))
+    if request.method == 'POST' and 'back' in request.form:
+        return redirect(url_for('display_api'))
+    return render_template('edit_api.html', title='Edit Api', form=form, data=data)

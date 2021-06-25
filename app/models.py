@@ -11,10 +11,10 @@ from app import app
 class Api(db.Model):
     # Building API
     apiid = db.Column(db.Integer, primary_key=True)
-    apiname = db.Column(db.String(120), index=True, unique=True)         # Stores user inputted Name
-    requesttype = db.Column(db.Text, index=True, unique=False)              # Stores request type
-    apiurl = db.Column(db.Text, index=True, unique=False)                   # Example:  https://reqres.in/api/users/2
-    apidata = db.Column(db.Text, index=True)
+    apiname = db.Column(db.String(120), unique=True)         # Stores user inputted Name
+    requesttype = db.Column(db.Text,  unique=False)              # Stores request type
+    apiurl = db.Column(db.Text,  unique=False)                   # Example:  https://reqres.in/api/users/2
+    apidata = db.Column(db.Text)
     # apijson = db.Column(db.text, primary_key=True)
     # apifiles = db.Column(db.text, primary_key=True)
     # apillowredirects = db.Column(db.Boolean, primary_key=True)
@@ -26,9 +26,9 @@ class Api(db.Model):
     #
     # # Storing API Results
     # apirequest = db.Column(db.text, primary_key=True)  #
-    apiresponse = db.Column(db.Text, index=True)  # Example would be JSON response
-    statuscode = db.Column(db.Integer, index=True)  # Status Code: 200, 404
-    apireason = db.Column(db.Text, index=True)  # Example would be OK
+    apiresponse = db.Column(db.Text)  # Example would be JSON response
+    statuscode = db.Column(db.Integer)  # Status Code: 200, 404
+    apireason = db.Column(db.Text)  # Example would be OK
     # last_run = db.Column(db.DateTime, default=datetime.utcnow)  # Stores date last executed
 
     def __repr__(self):
@@ -36,6 +36,7 @@ class Api(db.Model):
         apiinfo.append(self.apiname)
         apiinfo.append(self.requesttype)
         apiinfo.append(self.apiurl)
+        apiinfo.append(self.apidata)
         return str(apiinfo)
 
     def get_apiname(self):
@@ -44,8 +45,20 @@ class Api(db.Model):
     def get_apiurl(self):
         return str(self.apiurl)
 
-    def get_requestype(self):
+    def set_apiurl(self, api_url):
+        self.apiurl = api_url
+        db.session.commit()
+
+    def get_requesttype(self):
         return str(self.requesttype)
+
+    def set_requesttype(self, api_requesttype):
+        self.requesttype = str(api_requesttype)
+        db.session.commit()
+
+    def set_apidata(self, api_data):
+        self.apidata = api_data
+        db.session.commit()
 
     def get_apidata(self):
         return self.apidata
@@ -71,10 +84,6 @@ class Api(db.Model):
     def get_reason(self):
         return str(self.apireason)
 
-# class ApiResponse(db.Model):
-#     apiresponse = db.Column(db.Text, index=True)  # Example would be JSON response
-#     statuscode = db.Column(db.Integer, index=True)  # Status Code: 200, 404
-#     apireason = db.Column(db.Text, index=True)  # Example would be OK
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
