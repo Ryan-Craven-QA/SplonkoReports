@@ -1,0 +1,118 @@
+2021-06-25 16:17:09,574 ERROR: Exception on /api_report [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\pdfkit\configuration.py", line 21, in __init__
+    with open(self.wkhtmltopdf) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 43, in api_report
+    render_html(row)
+  File "C:\Users\rmcra\SplonkoReports\app\report_generation.py", line 26, in render_html
+    html2pdf(html_path, pdf_path)
+  File "C:\Users\rmcra\SplonkoReports\app\report_generation.py", line 43, in html2pdf
+    pdfkit.from_file(f, pdf_path, options=options)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\pdfkit\api.py", line 46, in from_file
+    r = PDFKit(input, 'file', options=options, toc=toc, cover=cover, css=css,
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\pdfkit\pdfkit.py", line 42, in __init__
+    self.configuration = (Configuration() if configuration is None
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\pdfkit\configuration.py", line 24, in __init__
+    raise IOError('No wkhtmltopdf executable found: "%s"\n'
+OSError: No wkhtmltopdf executable found: "b''"
+If this file exists please check that this process can read it. Otherwise please install wkhtmltopdf - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+2021-06-25 16:20:41,211 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 16:23:08,348 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 16:25:47,947 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 16:25:51,923 ERROR: Exception on /api_report [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 43, in api_report
+    render_html(row)
+  File "C:\Users\rmcra\SplonkoReports\app\report_generation.py", line 21, in render_html
+    html_file = open(html_path, 'w')
+FileNotFoundError: [Errno 2] No such file or directory: '/app/pdf'
+2021-06-25 16:25:59,465 ERROR: Exception on /api_report [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 43, in api_report
+    render_html(row)
+  File "C:\Users\rmcra\SplonkoReports\app\report_generation.py", line 21, in render_html
+    html_file = open(html_path, 'w')
+FileNotFoundError: [Errno 2] No such file or directory: '/app/pdf'
+2021-06-25 16:26:08,022 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 16:26:13,595 ERROR: Exception on /api_report [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 43, in api_report
+    render_html(row)
+  File "C:\Users\rmcra\SplonkoReports\app\report_generation.py", line 21, in render_html
+    html_file = open(html_path, 'w')
+PermissionError: [Errno 13] Permission denied: './app/pdf'
+2021-06-25 16:27:03,979 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]
+2021-06-25 16:27:08,589 ERROR: Exception on /api_report [POST] [in c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\rmcra\SplonkoReports\app\routes.py", line 43, in api_report
+    render_html(row)
+  File "C:\Users\rmcra\SplonkoReports\app\report_generation.py", line 26, in render_html
+    html2pdf(html_path, pdf_path)
+  File "C:\Users\rmcra\SplonkoReports\app\report_generation.py", line 45, in html2pdf
+    pdfkit.from_file(f, pdf_path, options=options, configuration=config)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\pdfkit\api.py", line 49, in from_file
+    return r.to_pdf(output_path)
+  File "c:\users\rmcra\splonkoreports\venv\lib\site-packages\pdfkit\pdfkit.py", line 156, in to_pdf
+    raise IOError('wkhtmltopdf reported an error:\n' + stderr)
+OSError: wkhtmltopdf reported an error:
+Loading pages (1/6)
+[>                                                           ] 0%[======>                                                     ] 10%[======>                                                     ] 11%[===============>                                            ] 26%[=====================>                                      ] 35%[========================>                                   ] 41%[===========================>                                ] 46%[============================================================] 100%QPainter::begin(): Returned false
+Error: Unable to write to destination                              
+Exit with code 1, due to unknown error.
+
+2021-06-25 16:29:19,535 INFO: Splonko startup [in C:\Users\rmcra\SplonkoReports\app\__init__.py:47]

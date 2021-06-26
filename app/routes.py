@@ -1,14 +1,21 @@
+import os
 import sys
 from json import JSONDecodeError
-from flask import render_template, flash, redirect, url_for, request, session
+
+import jinja2
+from flask import render_template, flash, redirect, url_for, request, session, make_response
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db, requests_helper
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
     CreateAPI, EditAPI
 from app.models import User, Api
-from datetime import datetime
+from datetime import datetime, date
 from app.email import send_password_reset_email
+import pandas as pd
+import pdfkit
+
+from app.report_generation import render_html
 
 
 @app.before_request
@@ -19,9 +26,26 @@ def before_request():
 
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
+    return render_template('index.html', title='Home')
+
+
+@app.route('/api_report', methods=['GET', 'POST'])
+@login_required
+def api_report():
+    if request.method == 'POST':
+        if 'pdf' in request.form:
+            print('Generate PDF button clicked', file=sys.stderr)
+            cwd = os.getcwd()  # Get the current working directory (cwd)
+            files = os.listdir(cwd)  # Get all the files in that directory
+            print("Files in %r: %s" % (cwd, files))
+
+            df = Api.query.all()
+            for row in df:
+                render_html(row)
+
     try:
         s = Api.query.all()
         apipass = 0
@@ -49,7 +73,7 @@ def index():
                 Api.set_response(x, "{}")
         data = db.session.query(Api).all()
         apisuccess = "{:.2f}".format((apipass / apitotal)*100)
-        return render_template('index.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal, apisuccess=apisuccess, apiwip=apiwip)
+        return render_template('api_report.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal, apisuccess=apisuccess, apiwip=apiwip)
     except UnboundLocalError:
         return render_template('index.html', title='Home')
 
@@ -171,7 +195,6 @@ def display_api():
         else:
             api_id = request.form['delete']
             api_to_delete = Api.query.get_or_404(api_id)
-            print('Delete button clicked and apiid is ' + str(api_id), file=sys.stderr)
             db.session.delete(api_to_delete)
             db.session.commit()
             return redirect(url_for('display_api'))

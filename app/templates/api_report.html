@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px; ">  API Dashboard: </h1>
+    <form action="" method="POST" style="position: absolute; top: 130px; right: 10px;"><button class="btn btn-info" type="submit" name="pdf" value=""><span class="glyphicon glyphicon-download-alt"></span>  Generate Report</button> </form>
+
+    <table id="output" style="border: 1px solid black; font-family: sans-serif; margin-top: 20px">
+        <thead style="background: lightgray">
+            <tr>
+                <td style="padding: 5px 15px; background: springgreen">Passed</td>
+                <td style="padding: 5px 15px; background: orangered">Failed</td>
+                <td style="padding: 5px 15px;">Total</td>
+                <td style="padding: 5px 15px;">Success Rate</td>
+                <td style="padding: 5px 15px; background: orange">Work In Progress</td>
+            </tr>
+
+        </thead>
+
+      <tbody>
+                  <td class="pass"  style="padding: 5px 15px;">{{ apipass }} </td>
+                  <td class="fail" style="padding: 5px 15px;">{{ apifail }}</td>
+                  <td class="total" style="padding: 5px 15px;">{{ apitotal }}</td>
+                  <td class="percent" style="padding: 5px 15px;">{{ apisuccess }}%</td>
+                  <td class="total" style="padding: 5px 15px;">{{ apiwip }}</td>
+            </tr>
+      </tbody>
+    </table>
+
+<br>
+
+    <table style="width:50%">
+        <tr>
+            <th style="background-color: lightgreen">Status</th>
+            <th style="background-color: lightgreen">Name</th>
+            <th style="background-color: lightgreen">Status Code</th>
+        </tr>
+                    {% for x in data %}
+
+        <tr>
+            <td>
+                    <span class="circle{{ x.statuscode }}"></span>
+            </td>
+            <td>
+                {{ x.apiname }}   ({{ x.requesttype }}) <br>
+                <p style="font-weight: lighter; font-family: Ebrima; color: blue;"> {{ x.apiurl }} </p>
+                <details>
+                    <summary style="cursor: pointer; color: blue; font-weight: bold;"> Click to see/close response: </summary>
+                    <p> {{ x.apiresponse }} </p>
+                </details>
+            </td>
+            <td>
+                 {{ x.statuscode }}
+            </td>
+        </tr>
+            {% endfor %}
+    </table>
+
+{% endblock %}
