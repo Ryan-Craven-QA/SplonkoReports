@@ -1,0 +1,238 @@
+<style>
+    /*200 Status Codes*/
+.circle200{
+  background-color:green;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: green;
+  line-height:50px;
+  text-align:center
+}
+
+.circle201{
+  background-color:green;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: green;
+  line-height:50px;
+  text-align:center
+}
+
+.circle204{
+  background-color:green;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: green;
+  line-height:50px;
+  text-align:center
+}
+
+/*400 Status Codes*/
+.circle400{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle401{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle403{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle404{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle405{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle409{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle500{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circle503{
+  background-color:red;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: red;
+  line-height:50px;
+  text-align:center
+}
+
+.circleNone{
+  background-color:orange;
+  display:block;
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  margin:auto;
+  color: green;
+  line-height:50px;
+  text-align:center
+}
+
+.apiBlock {
+  font-size: large;
+  position: relative;
+  top: -30px;
+  right: -15px;
+}
+
+#output {
+  border: 1px solid black;
+  font-family: sans-serif;
+  margin-top: 20px;
+}
+
+
+table, th, td {
+  border: 1px solid black;
+  font-weight: 900;
+  text-align:center
+}
+
+table {
+  border-collapse:separate;
+  border-spacing:2px;
+}
+
+.myselect option {
+  white-space: nowrap;
+  width: 100%; border-bottom: 1px #ccc solid;
+  /* This doesn't work. */
+}
+
+form {
+  display: inline;
+  font-variant: all-petite-caps
+}
+</style>
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px; ">  API Report: </h1>
+
+    <table id="output" style="border: 1px solid black; font-family: sans-serif; margin-top: 20px">
+        <thead style="background: lightgray">
+            <tr>
+                <td style="padding: 5px 15px; background: springgreen">Passed</td>
+                <td style="padding: 5px 15px; background: orangered">Failed</td>
+                <td style="padding: 5px 15px;">Total</td>
+                <td style="padding: 5px 15px;">Success Rate</td>
+                <td style="padding: 5px 15px; background: orange">Work In Progress</td>
+            </tr>
+
+        </thead>
+
+      <tbody>
+                  <td class="pass"  style="padding: 5px 15px;">{{ apipass }} </td>
+                  <td class="fail" style="padding: 5px 15px;">{{ apifail }}</td>
+                  <td class="total" style="padding: 5px 15px;">{{ apitotal }}</td>
+                  <td class="percent" style="padding: 5px 15px;">{{ apisuccess }}%</td>
+                  <td class="total" style="padding: 5px 15px;">{{ apiwip }}</td>
+            </tr>
+      </tbody>
+    </table>
+
+<br>
+
+    <table style="width:100%">
+        <tr>
+            <th style="background-color: lightgreen">Status</th>
+            <th style="background-color: lightgreen">Name</th>
+            <th style="background-color: lightgreen">Status Code</th>
+        </tr>
+                    {% for x in data %}
+
+        <tbody>
+            <td>
+                    <span class="circle{{ x.statuscode }}"></span>
+            </td>
+            <td>
+                {{ x.apiname }}   ({{ x.requesttype }}) <br>
+                <p style="font-weight: lighter; font-family: Ebrima; color: blue;"> {{ x.apiurl }} </p>
+                 {{ x.apiresponse }}
+            </td>
+            <td>
+                 {{ x.statuscode }}
+            </td>
+        </tbody>
+            {% endfor %}
+    </table>
+
+{% endblock %}
