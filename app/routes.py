@@ -1,20 +1,17 @@
 import os
 import sys
+from datetime import datetime
 from json import JSONDecodeError
 
-import jinja2
-from flask import render_template, flash, redirect, url_for, request, session, make_response
+from flask import render_template, flash, redirect, url_for, request, session
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
-from app import app, db, requests_helper
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
-    CreateAPI, EditAPI
-from app.models import User, Api
-from datetime import datetime, date
-from app.email import send_password_reset_email
-import pandas as pd
-import pdfkit
 
+from app import app, db, requests_helper
+from app.email import send_password_reset_email
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
+    CreateAPI
+from app.models import User, Api
 from app.report_generation import render_html
 
 
@@ -42,9 +39,10 @@ def api_report():
             files = os.listdir(cwd)  # Get all the files in that directory
             print("Files in %r: %s" % (cwd, files))
 
-            df = Api.query.all()
-            for row in df:
-                render_html(row)
+            # df = Api.query.all()
+            # for row in df:
+            #     render_html(row)
+            render_html()
 
     try:
         s = Api.query.all()
