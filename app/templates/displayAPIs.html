@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px;">  API Lists: </h1>
 
-<table style="width:50%">
+<table style="width:75%">
         <tr>
             <th style="background-color: lightgreen">Name</th>
             <th style="background-color: lightgreen">Request Type</th>
@@ -24,10 +24,10 @@
                  {{ x.apiurl }}
             </td>
             <td>
-                    <form action="" method="POST" ><button class="btn btn-primary" type="submit" name="edit" value="{{  x.apiid  }}"><span class="glyphicon glyphicon-edit"></span>  Edit</button> </form>
+                    <form action="" method="POST" ><button class="btn btn-primary" type="submit" name="edit" value="{{  x.apiid  }}" style="font-variant: all-petite-caps;"><span class="glyphicon glyphicon-edit"></span>  Edit</button> </form>
                     <form action="" method="POST" >
                         <a href="" onclick="return confirm('Are you sure you want to delete {{ x.apiname }}?');">
-                        <button class="btn btn-danger" type="submit" name="delete" value="{{  x.apiid  }}">
+                        <button class="btn btn-danger" type="submit" name="delete" value="{{  x.apiid  }}" style="font-variant: all-petite-caps;">
                             <span class="glyphicon glyphicon-trash"></span>
                              Delete
                         </button> </a></form>
