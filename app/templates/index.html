@@ -2,5 +2,43 @@
 
 {% block content %}
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px; ">  API Dashboard: </h1>
+
+    <table id="output" style="border: 1px solid black; font-family: sans-serif; margin-top: 20px">
+        <thead style="background: lightgray">
+            <tr>
+                <td style="padding: 5px 15px; background: springgreen">Passed</td>
+                <td style="padding: 5px 15px; background: orangered">Failed</td>
+                <td style="padding: 5px 15px;">Total</td>
+                <td style="padding: 5px 15px;">Success Rate</td>
+                <td style="padding: 5px 15px; background: orange">Work In Progress</td>
+                <td style="padding: 5px 15px;">Last Updated</td>
+            </tr>
+
+        </thead>
+
+      <tbody>
+      {% for y in stat %}
+        <tr>
+                  <td class="pass"  style="padding: 5px 15px;">{{ y.apipass }} </td>
+                  <td class="fail" style="padding: 5px 15px;">{{ y.apifail }}</td>
+                  <td class="total" style="padding: 5px 15px;">{{ y.apitotal }}</td>
+                  <td class="percent" style="padding: 5px 15px;">{{ y.apisuccess }}%</td>
+                  <td class="total" style="padding: 5px 15px;">{{ y.apiwip }}</td>
+                  <td class="total" style="padding: 5px 15px;">{{ y.last_updated }}</td>
+            </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+<br>
+<!--    apiResult = {}-->
+<!--    apiResult = {'Pass': apipass}-->
+<!--    apiResult = {'Fail': apifail}-->
+<!--    apiResult = {'Wip': apiwip}-->
+<!--    apiResult = {'Total': apitotal}-->
+<!--    apiResult = {'SuccPert': apisuccess}-->
 
 {% endblock %}

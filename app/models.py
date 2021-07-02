@@ -1,4 +1,5 @@
 from datetime import datetime
+from pytz import timezone
 from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -83,6 +84,50 @@ class Api(db.Model):
 
     def get_reason(self):
         return str(self.apireason)
+
+
+class Stats(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    apipass = db.Column(db.Integer)
+    apifail = db.Column(db.Integer)
+    apitotal = db.Column(db.Integer)
+    apisuccess = db.Column(db.Float)
+    apiwip = db.Column(db.Integer)
+    last_updated = db.Column(db.Text, default=datetime.now(timezone('EST')))
+
+    def __repr__(self):
+        apistats = []
+        apistats.append(self.apipass)
+        apistats.append(self.apifail)
+        apistats.append(self.apitotal)
+        apistats.append(self.apisuccess)
+        apistats.append(self.apiwip)
+        apistats.append(self.last_updated)
+        return str(apistats)
+
+    def set_apipass(self, api_pass):
+        self.apipass = int(api_pass)
+        db.session.commit()
+
+    def set_apifail(self, api_fail):
+        self.apifail = int(api_fail)
+        db.session.commit()
+
+    def set_apitotal(self, api_total):
+        self.apitotal = int(api_total)
+        db.session.commit()
+
+    def set_apisuccess(self, api_success):
+        self.apisuccess = api_success
+        db.session.commit()
+
+    def set_apiwip(self, api_wip):
+        self.apiwip = int(api_wip)
+        db.session.commit()
+
+    def set_last_updated(self):
+        self.last_updated = datetime.now(timezone('America/New_York')).strftime('%Y-%m-%d %H:%M:%S')
+        db.session.commit()
 
 
 class User(UserMixin, db.Model):
