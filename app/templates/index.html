@@ -4,7 +4,7 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
-    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px; ">  API Dashboard: </h1>
+    <h1 style="font-family: Ebrima; text-decoration: underline; padding-bottom: 20px; ">  API Dashboard: Last 5 Runs</h1>
 
     <table id="output" style="border: 1px solid black; font-family: sans-serif; margin-top: 20px">
         <thead style="background: lightgray">
@@ -14,31 +14,23 @@
                 <td style="padding: 5px 15px;">Total</td>
                 <td style="padding: 5px 15px;">Success Rate</td>
                 <td style="padding: 5px 15px; background: orange">Work In Progress</td>
-                <td style="padding: 5px 15px;">Last Updated</td>
             </tr>
 
         </thead>
 
       <tbody>
-      {% for y in stat %}
+      {% for y in stat|reverse %}
         <tr>
                   <td class="pass"  style="padding: 5px 15px;">{{ y.apipass }} </td>
                   <td class="fail" style="padding: 5px 15px;">{{ y.apifail }}</td>
                   <td class="total" style="padding: 5px 15px;">{{ y.apitotal }}</td>
                   <td class="percent" style="padding: 5px 15px;">{{ y.apisuccess }}%</td>
                   <td class="total" style="padding: 5px 15px;">{{ y.apiwip }}</td>
-                  <td class="total" style="padding: 5px 15px;">{{ y.last_updated }}</td>
             </tr>
       {% endfor %}
       </tbody>
     </table>
-
+    <h5> Last updated: {{ lastStat.last_updated }}</h5>
 <br>
-<!--    apiResult = {}-->
-<!--    apiResult = {'Pass': apipass}-->
-<!--    apiResult = {'Fail': apifail}-->
-<!--    apiResult = {'Wip': apiwip}-->
-<!--    apiResult = {'Total': apitotal}-->
-<!--    apiResult = {'SuccPert': apisuccess}-->
 
 {% endblock %}

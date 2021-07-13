@@ -7,7 +7,7 @@ from flask import render_template, flash, redirect, url_for, request, session
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 
-from app import app, db, requests_helper
+from app import app, db, requests_helper, stats_helper
 from app.api_results import get_api_results
 from app.email import send_password_reset_email
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
@@ -29,7 +29,8 @@ def before_request():
 @login_required
 def index():
     stat = Stats.query.all()
-    return render_template('index.html', title='Home', stat=stat)
+    lastStat = Stats.query.order_by(Stats.statid.desc()).first()
+    return render_template('index.html', title='Home', stat=stat, lastStat=lastStat)
 
 
 @app.route('/api_report', methods=['GET', 'POST'])
@@ -37,10 +38,6 @@ def index():
 def api_report():
     if request.method == 'POST':
         if 'pdf' in request.form:
-            print('Generate PDF button clicked', file=sys.stderr)
-            cwd = os.getcwd()  # Get the current working directory (cwd)
-            files = os.listdir(cwd)  # Get all the files in that directory
-            print("Files in %r: %s" % (cwd, files))
             render_html()
 
     try:
@@ -70,23 +67,9 @@ def api_report():
                 Api.set_response(x, "{}")
         data = db.session.query(Api).all()
 
-        if Stats.query.count() == 0:
-            stat = Stats(apipass=apiPass, apifail=apiFail, apitotal=apiTotal, apiwip=apiWip,
-                         apisuccess="{:.2f}".format((apiPass / apiTotal) * 100)),
-            db.session.add(stat)
-            db.session.commit()
-        else:
-            stat = Stats.query.all()
-            for y in stat:
-                Stats.set_apipass(y, apiPass)
-                Stats.set_apifail(y, apiFail)
-                Stats.set_apitotal(y, apiTotal)
-                Stats.set_apiwip(y, apiWip)
-                Stats.set_apisuccess(y, "{:.2f}".format((apiPass / apiTotal) * 100))
-                Stats.set_last_updated(y)
-            db.session.commit()
+        stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
 
-        stats = db.session.query(Stats).all()
+        stats = Stats.query.order_by(Stats.statid.desc()).first()
         return render_template('api_report.html', title='Home', data=data, stats=stats)
     except UnboundLocalError:
         return render_template('index.html', title='Home')
@@ -195,7 +178,7 @@ def create_API():
         db.session.add(c_api)
         db.session.commit()
         flash('API added to DB')
-        return redirect(url_for('index'))
+        return render_template('createAPI.html', title='Create API', form=form)
     return render_template('createAPI.html', title='Create API', form=form)
 
 

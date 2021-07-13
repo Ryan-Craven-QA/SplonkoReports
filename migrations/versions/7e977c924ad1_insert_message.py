@@ -1,8 +1,8 @@
-"""added apiStats db
+"""insert message
 
-Revision ID: d2ff2e11e93a
+Revision ID: 7e977c924ad1
 Revises: 
-Create Date: 2021-07-01 10:25:46.370640
+Create Date: 2021-07-03 11:37:05.449160
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd2ff2e11e93a'
+revision = '7e977c924ad1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,14 +31,14 @@ def upgrade():
     sa.UniqueConstraint('apiname')
     )
     op.create_table('stats',
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('statid', sa.Integer(), nullable=False),
     sa.Column('apipass', sa.Integer(), nullable=True),
     sa.Column('apifail', sa.Integer(), nullable=True),
     sa.Column('apitotal', sa.Integer(), nullable=True),
     sa.Column('apisuccess', sa.Float(), nullable=True),
     sa.Column('apiwip', sa.Integer(), nullable=True),
-    sa.Column('last_updated', sa.DateTime(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.Column('last_updated', sa.Text(), nullable=True),
+    sa.PrimaryKeyConstraint('statid')
     )
     op.create_table('user',
     sa.Column('id', sa.Integer(), nullable=False),

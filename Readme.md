@@ -21,7 +21,7 @@
 Common commands needed and forgotten:
 
 Starting virtual environment:
-* MAC: source venv/bin/activate
+* MAC: source venv/Scripts/activate
 * Windows: venv\Scripts\activate.bat
 
 Updating Flask DB: <br>

@@ -1,0 +1,109 @@
+2021-07-03 22:46:58,067 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 39, in updateStats
+    statFrom.apipass = statTo.apipass
+AttributeError: 'NoneType' object has no attribute 'apipass'
+2021-07-03 22:48:04,498 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:48:09,178 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 39, in updateStats
+    statFrom.apipass = statTo.apipass
+AttributeError: 'NoneType' object has no attribute 'apipass'
+2021-07-03 22:49:39,412 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:49:42,200 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 40, in updateStats
+    statFrom.apipass = statTo.apipass
+AttributeError: 'NoneType' object has no attribute 'apipass'
+2021-07-03 22:54:56,124 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:55:08,571 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 19, in updateStats
+    db.session.insert(stat)
+AttributeError: 'scoped_session' object has no attribute 'insert'
+2021-07-03 22:58:13,878 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:59:02,517 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 40, in updateStats
+    statTo.apipass = statFrom.apipass
+AttributeError: 'NoneType' object has no attribute 'apipass'
+2021-07-03 23:10:28,795 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 23:11:05,741 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 27, in updateStats
+    Stats.query.first().delete()
+AttributeError: 'Stats' object has no attribute 'delete'
+2021-07-03 23:12:56,439 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 23:15:15,087 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]

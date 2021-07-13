@@ -87,16 +87,17 @@ class Api(db.Model):
 
 
 class Stats(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    apipass = db.Column(db.Integer)
-    apifail = db.Column(db.Integer)
-    apitotal = db.Column(db.Integer)
-    apisuccess = db.Column(db.Float)
-    apiwip = db.Column(db.Integer)
-    last_updated = db.Column(db.Text, default=datetime.now(timezone('EST')))
+    statid = db.Column(db.Integer, primary_key=True)
+    apipass = db.Column(db.Integer,  unique=False)
+    apifail = db.Column(db.Integer,  unique=False)
+    apitotal = db.Column(db.Integer,  unique=False)
+    apisuccess = db.Column(db.Float,  unique=False)
+    apiwip = db.Column(db.Integer,  unique=False)
+    last_updated = db.Column(db.Text, default=datetime.now(timezone('America/New_York')).strftime('%Y-%m-%d %H:%M:%S'), unique=False)
 
     def __repr__(self):
         apistats = []
+        apistats.append(self.statid)
         apistats.append(self.apipass)
         apistats.append(self.apifail)
         apistats.append(self.apitotal)
@@ -129,6 +130,8 @@ class Stats(db.Model):
         self.last_updated = datetime.now(timezone('America/New_York')).strftime('%Y-%m-%d %H:%M:%S')
         db.session.commit()
 
+    def get_statid(self):
+        return str(self.statid)
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
