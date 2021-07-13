@@ -5,6 +5,10 @@
 <h4> Referenced Book: "The New and Improved Flask Mega-Tutorial" by Miguel Grinberg <br>
 <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"> Flask Mega Tutorial</a> </h4>
 
+<h3> Getting Started </h3>
+<p> Once you have a virtual environment spun up and activated, <br>
+Run this command to: pip install -r requirements.txt (or pip3 install -r requirements.txt)</p>
+
 <h3> The idea behind Splonko Reports is to provide an open source opportunity to show: </h3>
 
 1. Status of APIs that run of a schedule (WIP) -- Main goal
