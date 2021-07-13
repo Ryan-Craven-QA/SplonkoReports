@@ -1,0 +1,132 @@
+2021-07-03 14:27:55,151 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 26, in updateStats
+    print('stat id is ' + str(Stats.get_statid(Stats.query.get(y))), file=sys.stderr)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/models.py", line 134, in get_statid
+    return str(self.statid)
+AttributeError: 'NoneType' object has no attribute 'statid'
+2021-07-03 22:41:36,757 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 26, in updateStats
+    print('stat id is ' + str(Stats.get_statid(Stats.query.get(y))), file=sys.stderr)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/models.py", line 134, in get_statid
+    return str(self.statid)
+AttributeError: 'NoneType' object has no attribute 'statid'
+2021-07-03 22:41:48,978 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 26, in updateStats
+    print('stat id is ' + str(Stats.get_statid(Stats.query.get(y))), file=sys.stderr)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/models.py", line 134, in get_statid
+    return str(self.statid)
+AttributeError: 'NoneType' object has no attribute 'statid'
+2021-07-03 22:42:48,008 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:42:52,826 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 31, in updateStats
+    statFrom.apipass = statTo.apipass
+AttributeError: 'NoneType' object has no attribute 'apipass'
+2021-07-03 22:43:38,092 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:43:43,620 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 31, in updateStats
+    statFrom.apipass = statTo.apipass
+AttributeError: 'NoneType' object has no attribute 'apipass'
+2021-07-03 22:44:53,979 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:44:58,774 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 31, in updateStats
+    statFrom.apipass = statTo.apipass
+AttributeError: 'NoneType' object has no attribute 'apipass'
+2021-07-03 22:45:53,615 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 22:45:56,902 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 31, in updateStats
+    if Stats.get_statid(Stats.query.get(y)) == 1:
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/models.py", line 134, in get_statid
+    return str(self.statid)
+AttributeError: 'NoneType' object has no attribute 'statid'
+2021-07-03 22:46:55,473 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]

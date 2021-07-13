@@ -2,16 +2,18 @@ import os
 import sys
 from datetime import datetime
 from json import JSONDecodeError
-
+from pytz import timezone
 from flask import render_template, flash, redirect, url_for, request, session
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 
-from app import app, db, requests_helper
+from app import app, db, requests_helper, stats_helper
+from app.api_results import get_api_results
 from app.email import send_password_reset_email
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm, \
     CreateAPI
-from app.models import User, Api
+from app.models import User, Api, Stats
+
 from app.report_generation import render_html
 
 
@@ -26,7 +28,9 @@ def before_request():
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template('index.html', title='Home')
+    stat = Stats.query.all()
+    lastStat = Stats.query.order_by(Stats.statid.desc()).first()
+    return render_template('index.html', title='Home', stat=stat, lastStat=lastStat)
 
 
 @app.route('/api_report', methods=['GET', 'POST'])
@@ -34,22 +38,14 @@ def index():
 def api_report():
     if request.method == 'POST':
         if 'pdf' in request.form:
-            print('Generate PDF button clicked', file=sys.stderr)
-            cwd = os.getcwd()  # Get the current working directory (cwd)
-            files = os.listdir(cwd)  # Get all the files in that directory
-            print("Files in %r: %s" % (cwd, files))
-
-            # df = Api.query.all()
-            # for row in df:
-            #     render_html(row)
             render_html()
 
     try:
         s = Api.query.all()
-        apipass = 0
-        apifail = 0
-        apiwip = 0
-        apitotal = 0
+        apiPass = 0
+        apiFail = 0
+        apiWip = 0
+        apiTotal = 0
         for x in s:
             requesttype = Api.get_requesttype(x)
             apiurl = Api.get_apiurl(x)
@@ -57,21 +53,24 @@ def api_report():
             response = requests_helper.perform_request(requesttype, apiurl, apidata)
             try:
                 if response.status_code < 300:
-                    apipass += 1
-                    apitotal += 1
+                    apiPass += 1
+                    apiTotal += 1
                 else:
-                    apifail += 1
-                    apitotal += 1
+                    apiFail += 1
+                    apiTotal += 1
                 Api.set_responsecode(x, response.status_code)
                 Api.set_response(x, response.json())
                 Api.set_reason(x, response.reason)
             except AttributeError:
-                apiwip += 1
+                apiWip += 1
             except JSONDecodeError:
                 Api.set_response(x, "{}")
         data = db.session.query(Api).all()
-        apisuccess = "{:.2f}".format((apipass / apitotal)*100)
-        return render_template('api_report.html', title='Home', data=data, apipass=apipass, apifail=apifail, apitotal=apitotal, apisuccess=apisuccess, apiwip=apiwip)
+
+        stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+
+        stats = Stats.query.order_by(Stats.statid.desc()).first()
+        return render_template('api_report.html', title='Home', data=data, stats=stats)
     except UnboundLocalError:
         return render_template('index.html', title='Home')
 
@@ -174,11 +173,12 @@ def reset_password(token):
 def create_API():
     form = CreateAPI()
     if form.validate_on_submit():
-        c_api = Api(apiname = form.apiname.data, requesttype = form.requesttype.data, apiurl = form.apiurl.data, apidata=form.apidata.data)
+        c_api = Api(apiname=form.apiname.data, requesttype=form.requesttype.data, apiurl=form.apiurl.data,
+                    apidata=form.apidata.data)
         db.session.add(c_api)
         db.session.commit()
         flash('API added to DB')
-        return redirect(url_for('index'))
+        return render_template('createAPI.html', title='Create API', form=form)
     return render_template('createAPI.html', title='Create API', form=form)
 
 

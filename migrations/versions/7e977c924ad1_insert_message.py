@@ -1,8 +1,8 @@
-"""added new column names to Api table
+"""insert message
 
-Revision ID: d06b2acd5c9f
+Revision ID: 7e977c924ad1
 Revises: 
-Create Date: 2021-06-21 11:42:40.916442
+Create Date: 2021-07-03 11:37:05.449160
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd06b2acd5c9f'
+revision = '7e977c924ad1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,17 +23,23 @@ def upgrade():
     sa.Column('apiname', sa.String(length=120), nullable=True),
     sa.Column('requesttype', sa.Text(), nullable=True),
     sa.Column('apiurl', sa.Text(), nullable=True),
+    sa.Column('apidata', sa.Text(), nullable=True),
     sa.Column('apiresponse', sa.Text(), nullable=True),
     sa.Column('statuscode', sa.Integer(), nullable=True),
     sa.Column('apireason', sa.Text(), nullable=True),
-    sa.PrimaryKeyConstraint('apiid')
+    sa.PrimaryKeyConstraint('apiid'),
+    sa.UniqueConstraint('apiname')
     )
-    op.create_index(op.f('ix_api_apiname'), 'api', ['apiname'], unique=True)
-    op.create_index(op.f('ix_api_apireason'), 'api', ['apireason'], unique=False)
-    op.create_index(op.f('ix_api_apiresponse'), 'api', ['apiresponse'], unique=False)
-    op.create_index(op.f('ix_api_apiurl'), 'api', ['apiurl'], unique=True)
-    op.create_index(op.f('ix_api_requesttype'), 'api', ['requesttype'], unique=False)
-    op.create_index(op.f('ix_api_statuscode'), 'api', ['statuscode'], unique=False)
+    op.create_table('stats',
+    sa.Column('statid', sa.Integer(), nullable=False),
+    sa.Column('apipass', sa.Integer(), nullable=True),
+    sa.Column('apifail', sa.Integer(), nullable=True),
+    sa.Column('apitotal', sa.Integer(), nullable=True),
+    sa.Column('apisuccess', sa.Float(), nullable=True),
+    sa.Column('apiwip', sa.Integer(), nullable=True),
+    sa.Column('last_updated', sa.Text(), nullable=True),
+    sa.PrimaryKeyConstraint('statid')
+    )
     op.create_table('user',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=64), nullable=True),
@@ -53,11 +59,6 @@ def downgrade():
     op.drop_index(op.f('ix_user_username'), table_name='user')
     op.drop_index(op.f('ix_user_email'), table_name='user')
     op.drop_table('user')
-    op.drop_index(op.f('ix_api_statuscode'), table_name='api')
-    op.drop_index(op.f('ix_api_requesttype'), table_name='api')
-    op.drop_index(op.f('ix_api_apiurl'), table_name='api')
-    op.drop_index(op.f('ix_api_apiresponse'), table_name='api')
-    op.drop_index(op.f('ix_api_apireason'), table_name='api')
-    op.drop_index(op.f('ix_api_apiname'), table_name='api')
+    op.drop_table('stats')
     op.drop_table('api')
     # ### end Alembic commands ###

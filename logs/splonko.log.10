@@ -1,0 +1,130 @@
+2021-07-03 14:18:05,152 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: stats.statid
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 38, in updateStats
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3298, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3398, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 234, in save_obj
+    _emit_update_statements(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 998, in _emit_update_statements
+    c = connection._execute_20(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 324, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: stats.statid
+[SQL: UPDATE stats SET statid=?, last_updated=? WHERE stats.statid = ?]
+[parameters: (5, '2021-07-03 14:18:00', 4)]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+2021-07-03 14:19:15,245 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 14:19:20,581 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 26, in updateStats
+    print('stat id is ' + str(Stats.get_statid(Stats.query.get(y))), file=sys.stderr)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/models.py", line 134, in get_statid
+    return str(self.statid)
+AttributeError: 'NoneType' object has no attribute 'statid'
+2021-07-03 14:19:31,572 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 26, in updateStats
+    print('stat id is ' + str(Stats.get_statid(Stats.query.get(y))), file=sys.stderr)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/models.py", line 134, in get_statid
+    return str(self.statid)
+AttributeError: 'NoneType' object has no attribute 'statid'
+2021-07-03 14:26:12,413 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]
+2021-07-03 14:27:13,479 ERROR: Exception on /api_report [GET] [in /usr/local/lib/python3.9/site-packages/flask/app.py:1454]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/routes.py", line 69, in api_report
+    stats_helper.updateStats(apiPass, apiFail, apiTotal, apiWip)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/stats_helper.py", line 26, in updateStats
+    print('stat id is ' + str(Stats.get_statid(Stats.query.get(y))), file=sys.stderr)
+  File "/Users/rmcrave2/PycharmProjects/SplonkoReports/app/models.py", line 134, in get_statid
+    return str(self.statid)
+AttributeError: 'NoneType' object has no attribute 'statid'
+2021-07-03 14:27:51,538 INFO: Splonko startup [in /Users/rmcrave2/PycharmProjects/SplonkoReports/app/__init__.py:47]

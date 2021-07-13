@@ -55,7 +55,7 @@ def html2pdf(html_path, pdf_path):
     Convert html to pdf using pdfkit which is a wrapper of wkhtmltopdf
     """
     path_wk = r"C:\Program Files (x86)\wkhtmltopdf\bin\wkhtmltopdf.exe"
-    config = pdfkit.configuration(wkhtmltopdf=path_wk)
+    # config = pdfkit.configuration(wkhtmltopdf=path_wk)
     options = {
         'page-size': 'Letter',
         'margin-top': '0.35in',
@@ -67,8 +67,8 @@ def html2pdf(html_path, pdf_path):
         'enable-local-file-access': None
     }
     with open(html_path) as f:
-        pdfkit.from_file(f, pdf_path, options=options, configuration=config)
-        # pdfkit.from_file(f, pdf_path, options=options)
+        # pdfkit.from_file(f, pdf_path, options=options, configuration=config)
+        pdfkit.from_file(f, pdf_path, options=options)
 
 
 
