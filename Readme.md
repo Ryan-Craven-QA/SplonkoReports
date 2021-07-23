@@ -6,9 +6,33 @@
 <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"> Flask Mega Tutorial</a> </h4>
 
 <h3> Getting Started </h3>
-<p> Once you have a virtual environment spun up and activated, <br>
-Run this command to: pip install -r requirements.txt (or pip3 install -r requirements.txt)</p>
+1. Install pip
 
+*  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+*  python3 get-pip.py
+
+
+2. Start Virtual Environment
+* MAC: source venv/Scripts/activate
+* Windows: venv\Scripts\activate.bat
+    *   Terminal should should (venv) ...
+
+<p> Once you have a virtual environment spun up and activated, <br>
+3. Install requirements.txt file 
+
+* pip install -r requirements.txt (or pip3 install -r requirements.txt)</p>
+
+4. Starting the application (in terminal - type)
+* flask run
+
+
+** When the application starts **
+* There should be a few APIs already loaded into the DB
+* Login preloaded with:
+  * Username: splonko
+  * password: cat
+
+  
 <h3> The idea behind Splonko Reports is to provide an open source opportunity to show: </h3>
 
 1. Status of APIs that run of a schedule (WIP) -- Main goal
@@ -23,10 +47,6 @@ Run this command to: pip install -r requirements.txt (or pip3 install -r require
 
 
 Common commands needed and forgotten:
-
-Starting virtual environment:
-* MAC: source venv/Scripts/activate
-* Windows: venv\Scripts\activate.bat
 
 Updating Flask DB: <br>
    * flask db migrate -m "insert message" <br>
