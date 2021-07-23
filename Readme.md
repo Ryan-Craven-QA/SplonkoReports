@@ -25,6 +25,14 @@
 4. Starting the application (in terminal - type)
 * flask run
 
+
+** When the application starts **
+* There should be a few APIs already loaded into the DB
+* Login preloaded with:
+  * Username: splonko
+  * password: cat
+
+  
 <h3> The idea behind Splonko Reports is to provide an open source opportunity to show: </h3>
 
 1. Status of APIs that run of a schedule (WIP) -- Main goal
@@ -39,8 +47,6 @@
 
 
 Common commands needed and forgotten:
-
-
 
 Updating Flask DB: <br>
    * flask db migrate -m "insert message" <br>
